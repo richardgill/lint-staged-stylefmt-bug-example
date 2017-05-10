@@ -1,0 +1,23 @@
+{
+  "name": "lint-staged-stylefmt-bug-example",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "broken:stylefmt": "stylefmt styles/file1.css styles/file2.css",
+    "alsobroken:stylefmt": "stylefmt --list styles/file1.css styles/file2.css",
+    "working:stylefmt": "stylefmt --recursive styles/file1.css styles/file2.css",
+    "whatithinkgetsrun:stylefmt": "stylefmt --recursive -- styles/file1.css styles/file2.css",
+    "precommit": "lint-staged"
+  },
+  "devDependencies": {
+    "husky": "^0.13.3",
+    "lint-staged": "^3.4.1",
+    "stylefmt": "^5.3.2"
+  },
+  "lint-staged": {
+    "*.css": [
+      "stylefmt --recursive"
+    ]
+  }
+}
